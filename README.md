@@ -1,7 +1,7 @@
 ## Pema-Blogs
 
 ## Author
-Abishag Maitha
+Mungai Mbugua
 
 ## Description
 A site that allows user to view and comment on blogs posted by admin user. User can also view random quotes
