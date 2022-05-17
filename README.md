@@ -48,4 +48,3 @@ Email: mungai.mbugua@student.moringaschool.com
 Contact: 0797950827
 
 ## Live Link
-pema-blogs.herokuapp.com/
