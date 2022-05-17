@@ -1,4 +1,4 @@
-## Pema-Blogs
+## BLOGGER APP
 
 ## Author
 Mungai Mbugua
