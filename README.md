@@ -7,7 +7,7 @@ Mungai Mbugua
 A site that allows a user to view and comment on blogs posted by the admin user. A user can also view random quotes
 
 ## Project setup instructions
-* Fork the Repo from my github account: https://github.com/Abishag-Maitha/Pema-Blogs
+* Fork the Repo from my github account:
 * Clone the all files to your local environment
 * Install flask and virtual environment. Activate the virtual envorinment
 * Install PostgreSQL
