@@ -45,7 +45,7 @@ SOFTWARE.
 
 ## Author's Information
 Email: mungai.mbugua@student.moringaschool.com
-Contact: 0719816825
+Contact: 0797950827
 
 ## Live Link
 pema-blogs.herokuapp.com/
