@@ -4,7 +4,7 @@
 Mungai Mbugua
 
 ## Description
-A site that allows user to view and comment on blogs posted by admin user. User can also view random quotes
+A site that allows a user to view and comment on blogs posted by the admin user. A user can also view random quotes
 
 ## Project setup instructions
 * Fork the Repo from my github account: https://github.com/Abishag-Maitha/Pema-Blogs
