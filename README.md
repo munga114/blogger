@@ -44,7 +44,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 ## Author's Information
-Email: abishag.maitha@student.moringaschool.com
+Email: mungai.mbugua@student.moringaschool.com
 Contact: 0719816825
 
 ## Live Link
