@@ -11,7 +11,7 @@ class Config:
     '''
     SQLALCHEMY_TRACK_MODIFICATIONS=True
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://mungai:5458@localhost/blogz'
-    SECRET_KEY=os.environ.get('SECRET_KEY')
+    SECRET_KEY='12345'
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     MAIL_SERVER = 'smtp.gmail.com'
     MAIL_PORT = 587
@@ -23,10 +23,10 @@ class Config:
 
 
 class ProdConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
-
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL","")
     if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
-     SQLALCHEMY_DATABASE_URI =SQLALCHEMY_DATABASE_URI.replace("postgres://","postgresql://",)
+        SQLALCHEMY_DATABASE_URI =SQLALCHEMY_DATABASE_URI.replace("postgres://","postgresql://",)
+
 
 
 class DevConfig(Config):
