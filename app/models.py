@@ -13,8 +13,8 @@ class User(db.Model, UserMixin):
     bio=db.Column(db.String(255))
     profile_pic_path=db.Column(db.String())
 
-    blogs=db.relationship("Blog",backref="user",lazy="dynamic")
-    comments = db.relationship('Comment',backref = 'user',lazy = "dynamic")
+    # blogs=db.relationship("Blog",backref="user",lazy="dynamic")
+    # comments = db.relationship('Comment',backref = 'user',lazy = "dynamic")
 
     @login_manager.user_loader
     def load_user(id):
@@ -44,55 +44,55 @@ class User(db.Model, UserMixin):
 
 
 class Blog(db.Model):
-    __tablename__="blogs"
-    id=db.Column(db.Integer, primary_key=True)
-    title=db.Column(db.String(255), nullable=False)
-    user_id=db.Column(db.Integer, db.ForeignKey('users.id'))
-    time=db.Column(db.DateTime, default=datetime.utcnow)
-    post=db.Column(db.Text(), nullable=False)
-    comment = db.relationship('Comment',backref='blog',lazy='dynamic')
+     __tablename__="blogs"
+     id=db.Column(db.Integer, primary_key=True)
+     title=db.Column(db.String(255), nullable=False)
+     user_id=db.Column(db.Integer, db.ForeignKey('users.id'))
+     time=db.Column(db.DateTime, default=datetime.utcnow)
+     post=db.Column(db.Text(), nullable=False)
+     comment = db.relationship('Comment',backref='blog',lazy='dynamic')
      
-    def save(self):
-        db.session.add(self)
-        db.session.commit()
+     def save(self):
+         db.session.add(self)
+         db.session.commit()
 
-    def delete(self):
-        db.session.delete(self)
-        db.session.commit()
+     def delete(self):
+         db.session.delete(self)
+         db.session.commit()
 
-    def __repr__(self):
-        return f"Blog:{self.post}" 
+     def __repr__(self):
+         return f"Blog:{self.post}" 
 
 
 class Comment(db.Model):
-    __tablename__="comments"
-    id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
-    blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'))
-    comment = db.Column(db.Text(), nullable=False)
+     __tablename__="comments"
+     id = db.Column(db.Integer, primary_key=True)
+     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
+     blog_id = db.Column(db.Integer, db.ForeignKey('blogs.id'))
+     comment = db.Column(db.Text(), nullable=False)
 
-    def save(self):
+     def save(self):
         db.session.add(self)
         db.session.commit()
 
-    @classmethod
-    def get_comments(cls,id):
-        comments=Comment.query.filter_by(blog_id=id).all()
+     @classmethod
+     def get_comments(cls,id):
+         comments=Comment.query.filter_by(blog_id=id).all()
 
-        return comments
+         return comments
 
-    def __repr__(self):
-        return f"Comment{self.comment}"
+     def __repr__(self):
+         return f"Comment{self.comment}"
 
 class Subscriber(db.Model):
-    __tablename__='subscribers'
+     __tablename__='subscribers'
 
-    id=db.Column(db.Integer,primary_key=True)
-    email = db.Column(db.String(255),unique=True,index=True)
+     id=db.Column(db.Integer,primary_key=True)
+     email = db.Column(db.String(255),unique=True,index=True)
 
-    def save_subscriber(self):
-        db.session.add(self)
-        db.session.commit()
+     def save_subscriber(self):
+         db.session.add(self)
+         db.session.commit()
 
-    def __repr__(self):
-        return f'Subscriber {self.email}'
+     def __repr__(self):
+         return f'Subscriber {self.email}'

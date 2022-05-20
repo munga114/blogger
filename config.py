@@ -10,6 +10,7 @@ class Config:
     General configuration parent class
     '''
     SQLALCHEMY_TRACK_MODIFICATIONS=True
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://mungai:5458@localhost/blogz'
     SECRET_KEY=os.environ.get('SECRET_KEY')
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     MAIL_SERVER = 'smtp.gmail.com'
@@ -22,13 +23,10 @@ class Config:
 
 
 class ProdConfig(Config):
-    '''
-    Pruduction  configuration child class
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 
-    Args:
-        Config: The parent configuration class with General configuration settings
-    '''
-    SQLALCHEMY_DATABASE_URI=os.environ.get("DATABASE_URL").replace('postgres://', 'postgresql://')
+    if SQLALCHEMY_DATABASE_URI.startswith("postgres://"):
+     SQLALCHEMY_DATABASE_URI =SQLALCHEMY_DATABASE_URI.replace("postgres://","postgresql://",)
 
 
 class DevConfig(Config):
